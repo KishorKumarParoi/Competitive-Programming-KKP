@@ -25,9 +25,11 @@ const int MOD = 1e9 + 7;
 
 int divide(int dividend, int divisor){
 	int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
-
-	divisor = abs(divisor);
-	dividend = abs(dividend);
+	if(divisor == 1)
+		return dividend;
+	
+	dividend = (dividend == INT_MIN) ? INT_MAX : abs(dividend);
+	divisor = (divisor == INT_MIN) ? INT_MAX : abs(divisor);
 
 	int temp = 0, quotient = 0, total = 0;
 
@@ -65,8 +67,10 @@ int divideWithLog(int dividend, int divisor){
 
 void solve(){
 	int a, b; cin >> a >> b;
+	cout << a / b << endl;
+	
 	cout << divideWithLog(a, b) << endl;
-	// cout << divide(a, b) << endl;
+	cout << divide(a, b) << endl;
 }
 
 int32_t main(){

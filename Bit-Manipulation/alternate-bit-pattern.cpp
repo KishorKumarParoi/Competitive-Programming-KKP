@@ -3,7 +3,7 @@
 
 // 02-05-23
 #include <bits/stdc++.h>
-            
+
 #define endl "\n"
 #define int long long
 #define sz(s) (int)s.size()
@@ -23,27 +23,23 @@ using namespace std;
 const int N   = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-int computeXOR(int n)
-{
-    if (n % 4 == 0)
-        return n;
-    if (n % 4 == 1)
-        return 1;
-    if (n % 4 == 2)
-        return n + 1;
-    else
-        return 0;
-}
-
 void solve(){
-  int n; cin >> n;
-  cout << computeXOR(n) << endl;
+	int n; cin >> n;
+	int num = n ^ (n >> 1);
+	dl(num)
+
+	bool ok = num & (num + 1);
+
+	if(!ok)
+		cout << "have alternate bits" << endl;
+	else
+		cout << "doesn't have alternate bits" << endl;
 }
 
 int32_t main(){
-  ios_base::sync_with_stdio(!cin.tie(nullptr));
-  
-  solve();
+	ios_base::sync_with_stdio(!cin.tie(nullptr));
 
-  return 0;
+	solve();
+
+	return 0;
 }
