@@ -1,9 +1,9 @@
 // Let's Begin Mara Khawa ^+^
 // author : @I_Love_My_Sherniii
 
-// 18-04-23
+// 31-05-23
 #include <bits/stdc++.h>
-
+            
 #define endl "\n"
 #define int long long
 #define sz(s) (int)s.size()
@@ -23,19 +23,42 @@ using namespace std;
 const int N   = 1e6 + 5;
 const int MOD = 1e9 + 7;
 
-void solve(){
-	array<int,6> arr = {1,2,3,4,4,6};
-	arr[4] = 40;
+void bubbleSort(vector<int>&arr, int n)
+{
+    int i, j;
+    bool swapped;
+    for (i = 0; i < n - 1; i++) {
+        swapped = false;
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+ 
+        // If no two elements were swapped by inner loop,
+        // then break
+        if (swapped == false)
+            break;
+    }
+}
 
-	for(int i = 0; i < arr.size(); ++i)
-		cout << arr[i] << ' ';
-	cout << endl;
+void solve(){
+  int n; cin >> n;
+  vector<int>arr(n);
+
+  for(int i = 0; i < n; ++i){
+  	cin >> arr[i];
+  }
+
+  bubbleSort(arr, n);
+  print(arr)
 }
 
 int32_t main(){
-	ios_base::sync_with_stdio(!cin.tie(nullptr));
-	
-	solve();
+  ios_base::sync_with_stdio(!cin.tie(nullptr));
+  
+  solve();
 
-	return 0;
+  return 0;
 }
